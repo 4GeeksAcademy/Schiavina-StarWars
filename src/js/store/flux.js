@@ -12,8 +12,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			personaje: [{}]
 		},
+
+
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
@@ -37,7 +40,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+
+			obtenerInformacion: ()=> {
+				fetch("https://www.swapi.tech/api/planets/1/")
+					.then(response => response.json())
+					.then(data => setStore({ personaje: data }))
+					.catch(err => console.log(err));				
+			},
+
+
 		}
 	};
 };
