@@ -1,18 +1,18 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
+			// demo: [
+			// 	{
+			// 		title: "FIRST",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	},
+			// 	{
+			// 		title: "SECOND",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	}
+			// ],
 			personaje: [{}]
 		},
 
@@ -42,10 +42,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 
-			obtenerInformacion: ()=> {
-				fetch("https://www.swapi.tech/api/planets/1/")
+			obtenerPersonaje: ()=> {
+				fetch("https://www.swapi.tech/api/people")
 					.then(response => response.json())
-					.then(data => setStore({ personaje: data }))
+					.then(data => setStore({ personaje: data.results }))
 					.catch(err => console.log(err));				
 			},
 
