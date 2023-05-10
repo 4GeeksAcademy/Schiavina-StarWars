@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 		initial: "white"
 			// 	}
 			// ],
-			personaje: [{}]
+			personaje: [{}],
+			planeta:[{}],
 		},
 
 
@@ -46,6 +47,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/people")
 					.then(response => response.json())
 					.then(data => setStore({ personaje: data.results }))
+					.catch(err => console.log(err));				
+			},
+
+			obtenerPlaneta: ()=> {
+				fetch("https://www.swapi.tech/api/planets")
+					.then(response => response.json())
+					.then(data => setStore({ planeta: data.results }))
 					.catch(err => console.log(err));				
 			},
 
