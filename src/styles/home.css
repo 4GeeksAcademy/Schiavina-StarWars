@@ -1,0 +1,24 @@
+#contenedorPersonaje::-webkit-scrollbar {
+    height: 7px; 
+}
+
+#contenedorPersonaje::-webkit-scrollbar-thumb {
+    background-color: grey ;
+    border-radius: 3px;
+}
+#contenedorPlaneta::-webkit-scrollbar {
+    height: 7px; 
+}
+
+#contenedorPlaneta::-webkit-scrollbar-thumb {
+    background-color: grey ;
+    border-radius: 3px;
+}
+#contenedorVehiculo::-webkit-scrollbar {
+    height: 7px; 
+}
+
+#contenedorVehiculo::-webkit-scrollbar-thumb {
+    background-color: grey ;
+    border-radius: 3px;
+}
