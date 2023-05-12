@@ -4,14 +4,13 @@ import "../../styles/home.css";
 import { Card } from "../component/card.js";
 import { CardPlaneta } from "../component/cardPlaneta.js";
 import { CardVehiculo } from "../component/cardVehiculo.js";
+import { Favoritos } from "../component/favoritos.js";
 
 import {Context} from "../store/appContext.js"
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	console.log(store.personaje)
 	const [state, setState] = useState({});
-	
 	useEffect(() => {
 		actions.obtenerPersonaje();
 		actions.obtenerPlaneta();
@@ -48,6 +47,7 @@ return (
 							/>
 						))}</div>
 	</div>
+
 	</div>
 );
 }

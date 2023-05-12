@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useContext, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.js"
+import { Card } from "../component/card.js";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	const [state, setState] = useState({});
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -13,6 +17,14 @@ export const Navbar = () => {
 					<button className="btn btn-primary me-2">Favorite</button>
 				</Link>
 			</div>
+
+			
+			
 		</nav>
 	);
 };
+
+
+
+
+

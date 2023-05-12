@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personaje: [{}],
 			planeta:[{}],
 			vehiculo:[{}],
+			listaFavoritos:[],
 		},
 
 
@@ -63,7 +64,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ vehiculo: data.results }))
 					.catch(err => console.log(err));				
 			},
-
+			agregarFavorito: (nombreFavorito)=> {
+				// console.log(nombreFavorito)
+				setStore({ listaFavoritos: getStore().listaFavoritos.concat({ nombreFavorito }) });
+				
+			}
 
 		}
 	};

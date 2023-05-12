@@ -7,7 +7,7 @@ import {Context} from "../store/appContext.js"
 export const CardVehiculo = (props) => {
 	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({});
-	console.log(props);
+	
 	
 return (
 	<div className="">
@@ -17,7 +17,7 @@ return (
   <div className="card-body">
     <h5 className="card-title"> {props.nameVehiculo} </h5>
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <div className="d-flex justify-content-between"><a href="#" className="btn btn-outline-primary">Learn more!</a><a href="#" className="btn btn-outline-warning ">FAV</a> </div>
+    <div className="d-flex justify-content-between"><a href="#" className="btn btn-outline-primary">Learn more!</a><a href="#" className="btn btn-outline-warning "><i className="fa fa-heart" /></a> </div>
 	
 
 
