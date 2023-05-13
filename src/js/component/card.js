@@ -13,7 +13,6 @@ export const Card = (props) => {
   function enviarFavorito(e){
     e.preventDefault()
     actions.agregarFavorito(props.name)
-    console.log(store.listaFavoritos)
 
 }
 	

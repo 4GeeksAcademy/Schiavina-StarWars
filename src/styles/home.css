@@ -22,3 +22,7 @@
     background-color: grey ;
     border-radius: 3px;
 }
+
+ul {
+    list-style-type: none;
+  }

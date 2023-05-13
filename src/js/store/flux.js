@@ -66,7 +66,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			agregarFavorito: (nombreFavorito)=> {
 				// console.log(nombreFavorito)
-				setStore({ listaFavoritos: getStore().listaFavoritos.concat({ nombreFavorito }) });
+				setStore({ listaFavoritos: getStore().listaFavoritos.concat(nombreFavorito) });
 				
 			}
 

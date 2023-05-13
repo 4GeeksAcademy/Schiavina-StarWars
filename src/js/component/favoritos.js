@@ -9,17 +9,13 @@ export const Favoritos = (props) => {
 	const [state, setState] = useState({});
 
 
-
   
 
 
 	
 return (
 	<div className="">
-		
-
-
-		
-	</div>
+	{props.nombre}
+		</div>
 );
 }
