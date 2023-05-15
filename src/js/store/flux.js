@@ -68,6 +68,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// console.log(nombreFavorito)
 				setStore({ listaFavoritos: getStore().listaFavoritos.concat(nombreFavorito) });
 				
+			},
+			eliminarFavorito: (nombreFavorito)=> {
+				const store = getStore();
+				const nuevaLista = store.listaFavoritos.filter(item => item !== nombreFavorito);
+				setStore({ listaFavoritos: nuevaLista });
 			}
 
 		}

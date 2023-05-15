@@ -19,13 +19,13 @@ function pendiente() {
 				{/* https://is2-ssl.mzstatic.com/image/thumb/Purple126/v4/e1/7c/ca/e17cca85-581d-4ce7-1965-65a80009ce4d/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/434x0w.webp */}
 			</Link>
 			<div className="ml-auto">
-				<Link to="/demo">
+				<Link to="/">
 				<div className="dropdown">
   <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Favoritos {pendiente()}
   </button>
   <ul className="dropdown-menu">
-    <li><a className="dropdown-item" href="#">{store.listaFavoritos.map((item, index)=> (<Favoritos key={index} nombre={item} />))}</a></li>
+    <li><span className="dropdown-item">{store.listaFavoritos.map((item, index)=> (<Favoritos key={index} nombre={item} />))}</span></li>
   </ul>
 </div>
 

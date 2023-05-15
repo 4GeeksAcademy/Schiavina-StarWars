@@ -8,14 +8,16 @@ export const Favoritos = (props) => {
 	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({});
 
-
+function borrarFavorito(e) {
+actions.eliminarFavorito(props.nombre)
+}
   
 
 
 	
 return (
-	<div className="">
-	{props.nombre}
+	<div className="d-flex justify-content-between">
+	{props.nombre}<button onClick={borrarFavorito} className="btn-close"></button>
 		</div>
 );
 }
