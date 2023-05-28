@@ -26,6 +26,7 @@ return (
 							<Card
 								key={index}
 								name={item.name}
+								id={item.uid}
 							/>
 						))}</div>
 </div>

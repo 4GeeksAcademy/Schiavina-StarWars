@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import {Context} from "../store/appContext.js"
 
+
 export const Card = (props) => {
 	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({});
@@ -16,6 +17,18 @@ export const Card = (props) => {
     actions.agregarFavorito(props.name)
 
 }
+
+// function obtenerPersonajeSingle(e){
+// console.log(props.id) 
+// fetch({"https://www.swapi.tech/api/people/":+props.id})
+// 								  .then(response => response.json())
+// 								  .then(data => setStore({ personaje: single1.result }))
+// 								  .catch(err => console.log("FALLO"));
+//     console.log(store.single1)
+// 	}
+
+
+
 	
 return (
 	<div className="">
@@ -24,8 +37,10 @@ return (
   <img src="https://parade.com/.image/t_share/MTkwNTgxMzUwMjEwMjgzMzg4/star-wars-characters-grogu-baby-yoda.jpg" className="card-img-top" />
   <div className="card-body">
     <h5 className="card-title"> {props.name} </h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.name}><button href="#" className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"> <i className="fa fa-heart" /> </a> </div>
+    <p className="card-text m-0 p-0">Gender:</p>
+    <p className="card-text m-0 p-0">Hair_color:</p>
+    <p className="card-text m-0 p-0">Eye_color:</p>
+    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.name}><button href="#"  className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"> <i className="fa fa-heart" /> </a> </div>
 	
 
 

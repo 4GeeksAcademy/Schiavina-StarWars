@@ -1,22 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			// demo: [
-			// 	{
-			// 		title: "FIRST",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	},
-			// 	{
-			// 		title: "SECOND",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	}
-			// ],
 			personaje: [{}],
 			planeta:[{}],
 			vehiculo:[{}],
 			listaFavoritos:[],
+			single1:[{}]
 		},
 
 
@@ -65,7 +54,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.log(err));				
 			},
 			agregarFavorito: (nombreFavorito)=> {
-				// console.log(nombreFavorito)
 				setStore({ listaFavoritos: getStore().listaFavoritos.concat(nombreFavorito) });
 				
 			},
@@ -73,7 +61,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				const nuevaLista = store.listaFavoritos.filter(item => item !== nombreFavorito);
 				setStore({ listaFavoritos: nuevaLista });
-			}
+			},
+
+			// personajeSingle:(id)=> {
+			// 	fetch({"https://www.swapi.tech/api/people/"+id})
+			// 					  .then(response => response.json())
+			// 					  .then(data => setStore({ personaje: data.results }))
+			// 					  .catch(err => console.log(err));
 
 		}
 	};
