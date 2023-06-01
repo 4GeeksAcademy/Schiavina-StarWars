@@ -34,7 +34,7 @@ return (
     <p className="card-text m-0 p-0">Gender:</p>
     <p className="card-text m-0 p-0">Hair_color:</p>
     <p className="card-text m-0 p-0">Eye_color:</p>
-    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.name}><button href="#"  onClick={singlePersonaje} className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"> <i className="fa fa-heart" /> </a> </div>
+    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.name+"/"+props.id}><button href="#"  onClick={singlePersonaje} className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"> <i className="fa fa-heart" /> </a> </div>
 	
 
 
