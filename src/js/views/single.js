@@ -13,6 +13,9 @@ import { Favoritos } from "../component/favoritos.js";
 export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	useEffect(() => {
+		console.log(store.single1)
+	}, []);
 	return (
 <div>
 	<div className="d-flex w-100 m-3 p-3 border-bottom border-danger">

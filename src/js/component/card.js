@@ -10,22 +10,16 @@ export const Card = (props) => {
 	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({});
 
-
-
   function enviarFavorito(e){
     e.preventDefault()
     actions.agregarFavorito(props.name)
-
 }
 
-// function obtenerPersonajeSingle(e){
-// console.log(props.id) 
-// fetch({"https://www.swapi.tech/api/people/":+props.id})
-// 								  .then(response => response.json())
-// 								  .then(data => setStore({ personaje: single1.result }))
-// 								  .catch(err => console.log("FALLO"));
-//     console.log(store.single1)
-// 	}
+function singlePersonaje(e){
+  actions.singlePersonajeIndividual(props.id)
+ 
+}
+
 
 
 
@@ -36,11 +30,11 @@ return (
 		<div className="card" style={{width: 280}}>
   <img src="https://parade.com/.image/t_share/MTkwNTgxMzUwMjEwMjgzMzg4/star-wars-characters-grogu-baby-yoda.jpg" className="card-img-top" />
   <div className="card-body">
-    <h5 className="card-title"> {props.name} </h5>
+    <h5 className="card-title"> {props.name}</h5>
     <p className="card-text m-0 p-0">Gender:</p>
     <p className="card-text m-0 p-0">Hair_color:</p>
     <p className="card-text m-0 p-0">Eye_color:</p>
-    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.name}><button href="#"  className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"> <i className="fa fa-heart" /> </a> </div>
+    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.name}><button href="#"  onClick={singlePersonaje} className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"> <i className="fa fa-heart" /> </a> </div>
 	
 
 
