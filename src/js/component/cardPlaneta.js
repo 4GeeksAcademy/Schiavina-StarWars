@@ -13,6 +13,10 @@ export const CardPlaneta = (props) => {
     actions.agregarFavorito(props.namePlaneta)
 
 }
+function singlePlaneta(e){
+  actions.singlePlanetaIndividual(props.pid)
+ 
+}
 	
 return (
 	<div className="">
@@ -23,8 +27,8 @@ return (
     <h5 className="card-title"> {props.namePlaneta} </h5>
     <p className="card-text m-0 p-0">Population:</p>
     <p className="card-text m-0 p-0">Terrain:</p>
-    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.namePlaneta}><button href="#" className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"><i className="fa fa-heart" /></a> </div>
-	
+    <div className="d-flex justify-content-between"><Link to={"/SinglePlaneta/"+props.namePlaneta+"/"+props.pid}><button href="#" className="btn btn-outline-primary" onClick={singlePlaneta}>Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"><i className="fa fa-heart" /></a> </div>
+    
 
 
 

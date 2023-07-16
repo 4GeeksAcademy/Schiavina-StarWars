@@ -13,6 +13,11 @@ export const CardVehiculo = (props) => {
     actions.agregarFavorito(props.nameVehiculo)
 
 }
+
+function singleVehicle(e){
+  actions.singleVehicleIndividual(props.vid)
+ 
+}
 	
 return (
 	<div className="">
@@ -23,7 +28,8 @@ return (
     <h5 className="card-title"> {props.nameVehiculo} </h5>
     <p className="card-text m-0 p-0">Crew:</p>
     <p className="card-text m-0 p-0">Vehicle class:</p>
-    <div className="d-flex justify-content-between"><Link to={"/Single/"+props.nameVehiculo}><button href="#" className="btn btn-outline-primary">Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning "><i className="fa fa-heart" /></a> </div>
+    <div className="d-flex justify-content-between"><Link to={"/SingleVehicle/"+props.nameVehiculo+"/"+props.vid}><button href="#" className="btn btn-outline-primary" onClick={singleVehicle}>Learn more!</button></Link><a onClick={enviarFavorito} href="#" className="btn btn-outline-warning"><i className="fa fa-heart" /></a> </div>
+    
 	
 
 

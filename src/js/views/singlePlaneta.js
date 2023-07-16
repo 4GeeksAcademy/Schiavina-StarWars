@@ -10,16 +10,15 @@ import { Favoritos } from "../component/favoritos.js";
 
 
 
-export const Single = props => {
+export const SinglePlaneta = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	useEffect(() => {
-		actions.singlePersonajeIndividual(params.id)
+		actions.singlePlanetaIndividual(params.pid)
 		// console.log(params)
 	}, []);
-	console.log(store.single1.eye_color)
-	console.log(store.single1.name)
-	console.log(store.single1.birth_year)
+	console.log(store.singlePlaneta.name)
+	
 	
 	return (
 <div className="w-100 h-100">
@@ -39,19 +38,19 @@ Los enemigos de esta saga son los Sith. Un aprendiz de esta raza malvado, Darth 
 <div>
       <tr className="d-flex col-12 justify-content-between">
         <th className="text-danger col-2 m-2 ms-2 fw-bold fs-5 text-center">Name</th>
-        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Birth year</th>
-        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Gender</th>
-        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Height</th>
-        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Skin Color</th>
-        <th className="text-danger col-2 m-2 fw-bold fs-5 me-2 text-center">Eye Color</th>
+        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Diameter</th>
+        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Climate</th>
+        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Terrain</th>
+        <th className="text-danger col-2 m-2 fw-bold fs-5 text-center">Population</th>
+        <th className="text-danger col-2 m-2 fw-bold fs-5 me-2 text-center">Gravity</th>
       </tr>
       <tr className="col-12 d-flex justify-content-between">
-        <td className="col-2 text-danger fs-5 m-2 ms-2 text-center">{store.single1.name}</td>
-        <td className="col-2 text-danger fs-5 m-2 text-center">{store.single1.birth_year}</td>
-        <td className="col-2 text-danger fs-5 m-2 text-center">{store.single1.gender}</td>
-        <td className="col-2 text-danger fs-5 m-2 text-center">{store.single1.height}</td>
-        <td className="col-2 text-danger fs-5 m-2 text-center">{store.single1.skin_color}</td>
-        <td className="col-2 text-danger fs-5 m-2 me-2 text-center">{store.single1.eye_color}</td>
+        <td className="col-2 text-danger fs-5 m-2 ms-2 text-center">{store.singlePlaneta.name}</td>
+        <td className="col-2 text-danger fs-5 m-2 text-center">{store.singlePlaneta.diameter}</td>
+        <td className="col-2 text-danger fs-5 m-2 text-center">{store.singlePlaneta.climate}</td>
+        <td className="col-2 text-danger fs-5 m-2 text-center">{store.singlePlaneta.terrain}</td>
+        <td className="col-2 text-danger fs-5 m-2 text-center">{store.singlePlaneta.population}</td>
+        <td className="col-2 text-danger fs-5 m-2 me-2 text-center">{store.singlePlaneta.gravity}</td>
       </tr>
 </div>
 
@@ -66,6 +65,6 @@ Los enemigos de esta saga son los Sith. Un aprendiz de esta raza malvado, Darth 
 	);
 };
 
-Single.propTypes = {
+SinglePlaneta.propTypes = {
 	match: PropTypes.object
 };
