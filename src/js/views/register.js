@@ -20,6 +20,7 @@ export const Register = props => {
         setName("");
         setEmail("");
         setPassword("");
+        console.log("handleSubmit funcionando")
     }
 
 	useEffect(() => {
@@ -37,12 +38,12 @@ export const Register = props => {
 
   <div className="mb-3 text-center">
     <label htmlFor="exampleInputEmail1" className="form-label bold fs-2">Email</label>
-    <input type="email" onChange={(e)=> setEmail(e.target.value)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+    <input type="email" onChange={(e)=> setEmail(e.target.value)}  className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
   </div>
 
   <div className="mb-3 text-center">
     <label htmlFor="exampleInputPassword1" className="form-label bold fs-2">Password</label>
-    <input type="password" onChange={(e)=> setPassword(e.target.value)} className="form-control" id="exampleInputPassword1" />
+    <input type="password" onChange={(e)=> setPassword(e.target.value)}  className="form-control" id="exampleInputPassword1" />
   </div>
 
 

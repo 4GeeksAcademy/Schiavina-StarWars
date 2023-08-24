@@ -67,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .catch(err => console.log(err));
 			  },
 			  login: (userEmail, userPassword) => {
-				fetch("https://maxischiavina-probable-enigma-pvqvwxvq7x43r9x4-3000.preview.app.github.dev/login", {
+				fetch("https://literate-couscous-66765j679jv256pp-3000.app.github.dev/login", {
 					method: 'POST',
 					body: JSON.stringify({email:userEmail, password:userPassword}),
 					headers:{ 'Content-Type':'application/json'
@@ -77,10 +77,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .then(data => console.log(data))
 				  .catch((error) => console.log(error));
 			  },
-			  register: (userName, userEmail, userPassword) => {
-				fetch("https://maxischiavina-probable-enigma-pvqvwxvq7x43r9x4-3000.preview.app.github.dev/usuario", {
+			  register: (userEmail, userPassword, userName) => {
+				fetch("https://literate-couscous-66765j679jv256pp-3000.app.github.dev/usuario", {
 					method: 'POST',
-					body: JSON.stringify({email:userEmail, password:userPassword, name:userName}),
+					body: JSON.stringify({name:userName, email:userEmail, password:userPassword}),
 					headers:{ 'Content-Type':'application/json'
 				}
 				})
