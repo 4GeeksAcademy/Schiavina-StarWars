@@ -17,6 +17,7 @@ export const Login = props => {
     function handleSubmit(e) {
         e.preventDefault()
         actions.login(email, password)
+        console.log(localStorage)
     }
 
 	useEffect(() => {

@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://literate-couscous-66765j679jv256pp-3000.app.github.dev";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -8,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			single1:[{}],
 			singlePlaneta:[{}],
 			singleVehicle:[{}],
+			isLogged: false,
 		},
 
 
@@ -67,18 +69,52 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .catch(err => console.log(err));
 			  },
 			  login: (userEmail, userPassword) => {
-				fetch("https://literate-couscous-66765j679jv256pp-3000.app.github.dev/login", {
+				fetch(API_BASE_URL+"/login", {
 					method: 'POST',
 					body: JSON.stringify({email:userEmail, password:userPassword}),
 					headers:{ 'Content-Type':'application/json'
 				}
 				})
 				  .then(response => response.json())
-				  .then(data => console.log(data))
+				  .then(data => localStorage.setItem('token', data.access_token),
+				  	localStorage.setItem('user', userEmail),
+					setStore({isLogged: true}))
 				  .catch((error) => console.log(error));
 			  },
+
+			  loggedUser: async () => {
+				try {
+					const params = {
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + localStorage.getItem(token)
+						}
+					}
+					const resp = await fetch(API_BASE_URL+ "/dataPerfil", params);
+					if (resp.status != 200) throw Error("Error de usuario");
+					console.log("usuario logeado")
+					return true
+				} catch (error) {
+					console.log(error)
+					return false
+				}
+			},
+			logout: () => {
+				console.log("logout 2 accionado")
+				let token = localStorage.getItem(token)
+				if (token === null) return false
+				console.log(token)
+				localStorage.removeItem(token)
+				localStorage.removeItem("user")
+				const store = getStore();
+				store.isLogged = false;
+				setStore(store);
+				console.log(localStorage.token)
+				return true
+			},
+
 			  register: (userEmail, userPassword, userName) => {
-				fetch("https://literate-couscous-66765j679jv256pp-3000.app.github.dev/usuario", {
+				fetch(API_BASE_URL+"/register", {
 					method: 'POST',
 					body: JSON.stringify({name:userName, email:userEmail, password:userPassword}),
 					headers:{ 'Content-Type':'application/json'

@@ -47,7 +47,11 @@ export const Register = props => {
   </div>
 
 
-<div className="text-center"><button type="submit" className="btn btn-primary">Crear Usuario</button></div>
+<div className="d-flex justify-content-between">
+  <span></span>
+<div className="text-center"><button type="submit" className="btn-lg btn-primary">Crear Usuario</button></div>
+<Link to="/"><div className="text-center"><button type="submit" className="btn btn-link">Ya estoy registrado</button></div></Link>
+</div>
 
 
 

@@ -22,7 +22,7 @@ return (
 	<div className=" ms-4 p-1">
 		
 		<h1 className="text-danger m-3">Characters </h1>	
-	<div id="contenedorPersonaje" className="d-flex overflow-auto col-6 w-75" >{store.personaje.map((item, index) => (
+	<div id="contenedorPersonaje" className="d-flex overflow-auto col-6 w-100" >{store.personaje.map((item, index) => (
 							<Card
 								key={index}
 								name={item.name}
@@ -32,7 +32,7 @@ return (
 </div>
 <div className="ms-4 p-1">
 		<h1 className="text-danger m-3">Planets </h1>		
-	<div id="contenedorPlaneta" className="d-flex overflow-auto col-6 w-75">{store.planeta.map((item, index) => (
+	<div id="contenedorPlaneta" className="d-flex overflow-auto col-6 w-100">{store.planeta.map((item, index) => (
 							<CardPlaneta
 								key={index}
 								namePlaneta={item.name}
@@ -42,7 +42,7 @@ return (
 	</div>
 	<div className="ms-4 p-1">
 		<h1 className="text-danger m-3 ">Vehicles </h1>		
-	<div id="contenedorVehiculo" className="d-flex overflow-auto col-6 w-75">{store.vehiculo.map((item, index) => (
+	<div id="contenedorVehiculo" className="d-flex overflow-auto col-6 w-100">{store.vehiculo.map((item, index) => (
 							<CardVehiculo
 								key={index}
 								nameVehiculo={item.name}
