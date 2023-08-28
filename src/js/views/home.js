@@ -11,12 +11,16 @@ import {Context} from "../store/appContext.js"
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	const [state, setState] = useState({});
+
 	useEffect(() => {
+		let token = localStorage.getItem("token")
+		if (token != null) setLogged(true)
+		console.log(localStorage)
 		actions.obtenerPersonaje();
 		actions.obtenerPlaneta();
 		actions.obtenerVehiculo();
-	}, []);
-	
+	}, [store.isLogged])
+
 return (
 	<div className="">
 	<div className=" ms-4 p-1">

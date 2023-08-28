@@ -1,4 +1,5 @@
 const API_BASE_URL = "https://literate-couscous-66765j679jv256pp-3000.app.github.dev";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -76,7 +77,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				})
 				  .then(response => response.json())
-				  .then(data => localStorage.setItem('token', data.access_token),
+				  .then(data => 
+					localStorage.setItem('token', data.access_token),
 				  	localStorage.setItem('user', userEmail),
 					setStore({isLogged: true}))
 				  .catch((error) => console.log(error));
@@ -100,21 +102,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			logout: () => {
-				console.log("logout 2 accionado")
-				let token = localStorage.getItem(token)
-				if (token === null) return false
-				console.log(token)
-				localStorage.removeItem(token)
+				console.log("logout en flux activado")
+				// let token = localStorage.getItem(token)
+				// if (token === null) return false
+				// console.log(token)
+				localStorage.removeItem("token")
 				localStorage.removeItem("user")
-				const store = getStore();
-				store.isLogged = false;
-				setStore(store);
-				console.log(localStorage.token)
-				return true
+				// const store = getStore();
+				setStore({isLogged: false});
+				// setStore(store);
+				// console.log(localStorage.token)
+				// return true
 			},
 
 			  register: (userEmail, userPassword, userName) => {
-				fetch(API_BASE_URL+"/register", {
+				fetch(API_BASE_URL+"/usuario", {
 					method: 'POST',
 					body: JSON.stringify({name:userName, email:userEmail, password:userPassword}),
 					headers:{ 'Content-Type':'application/json'
