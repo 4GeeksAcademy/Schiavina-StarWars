@@ -7,13 +7,18 @@ import { Card } from "../component/card.js";
 import { CardPlaneta } from "../component/cardPlaneta.js";
 import { CardVehiculo } from "../component/cardVehiculo.js";
 import { Favoritos } from "../component/favoritos.js";
+import { useNavigate } from "react-router";
 
 
 
 export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	let navigate = useNavigate()
+	
 	useEffect(() => {
+		let token = localStorage.getItem("token")
+			if (token == null) navigate("/")
 		actions.singlePersonajeIndividual(params.id)
 		// console.log(params)
 	}, []);
@@ -56,7 +61,7 @@ Los enemigos de esta saga son los Sith. Un aprendiz de esta raza malvado, Darth 
 </div>
 
 		<div className="d-flex w-100 m-3 p-3">	
-			<Link to="/">
+			<Link to="/home">
 				<button className="btn btn-primary btn-lg mt-5" href="#" role="button">
 					Back home
 				</button>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
@@ -13,11 +14,16 @@ export const Login = props => {
 
     const [ email, setEmail] = useState("");
     const [ password, setPassword ] = useState("");
+    let navigate = useNavigate()
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        actions.login(email, password)
-        console.log(localStorage)
+    async function handleSubmit(e) {
+      e.preventDefault();
+      try {
+        await actions.login(email, password);
+        navigate("/home");
+      } catch (error) {
+        console.error("Error de inicio de sesión:", error);
+      }
     }
 
 	useEffect(() => {

@@ -1,3 +1,4 @@
+
 const API_BASE_URL = "https://literate-couscous-66765j679jv256pp-3000.app.github.dev";
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -36,10 +37,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ vehiculo: data.results }))
 					.catch(err => console.log(err));				
 			},
-			agregarFavorito: (nombreFavorito)=> {
-				setStore({ listaFavoritos: getStore().listaFavoritos.concat(nombreFavorito) });
-				
-			},
+			agregarFavorito: (nombreFavorito) => {
+				const store = getStore();
+				if (!store.listaFavoritos.includes(nombreFavorito)) {
+				  setStore({ listaFavoritos: store.listaFavoritos.concat(nombreFavorito) });
+				}
+			  },   
+			  		   
 			eliminarFavorito: (nombreFavorito)=> {
 				const store = getStore();
 				const nuevaLista = store.listaFavoritos.filter(item => item !== nombreFavorito);
@@ -69,38 +73,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  })
 				  .catch(err => console.log(err));
 			  },
-			  login: (userEmail, userPassword) => {
-				fetch(API_BASE_URL+"/login", {
+			  login: async (userEmail, userPassword) => {
+				try {
+				  const response = await fetch(API_BASE_URL + "/login", {
 					method: 'POST',
-					body: JSON.stringify({email:userEmail, password:userPassword}),
-					headers:{ 'Content-Type':'application/json'
+					body: JSON.stringify({ email: userEmail, password: userPassword }),
+					headers: { 'Content-Type': 'application/json' }
+				  });
+			  
+				  if (!response.ok) {
+					throw new Error('Error de inicio de sesión'); // Puedes personalizar este mensaje de error
+				  }
+			  
+				  const data = await response.json();
+			  
+				  localStorage.setItem('token', data.access_token);
+				  localStorage.setItem('user', userEmail);
+				  setStore({ isLogged: true });
+				} catch (error) {
+				  console.log(error);
 				}
-				})
-				  .then(response => response.json())
-				  .then(data => 
-					localStorage.setItem('token', data.access_token),
-				  	localStorage.setItem('user', userEmail),
-					setStore({isLogged: true}))
-				  .catch((error) => console.log(error));
 			  },
 
-			  loggedUser: async () => {
-				try {
-					const params = {
-						headers: {
-							"Content-Type": "application/json",
-							"Authorization": "Bearer " + localStorage.getItem(token)
-						}
-					}
-					const resp = await fetch(API_BASE_URL+ "/dataPerfil", params);
-					if (resp.status != 200) throw Error("Error de usuario");
-					console.log("usuario logeado")
-					return true
-				} catch (error) {
-					console.log(error)
-					return false
-				}
-			},
 			logout: () => {
 				console.log("logout en flux activado")
 				// let token = localStorage.getItem(token)
@@ -110,9 +104,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("user")
 				// const store = getStore();
 				setStore({isLogged: false});
-				// setStore(store);
-				// console.log(localStorage.token)
-				// return true
 			},
 
 			  register: (userEmail, userPassword, userName) => {
@@ -122,9 +113,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					headers:{ 'Content-Type':'application/json'
 				}
 				})
-				  .then(response => response.json())
-				  .then(data => console.log(data))
-				  .catch((error) => console.log(error));
+				.then(response => {
+					if (!response.ok) {
+					  throw new Error('Error en el registro');
+					}
+					return response.json();
+				  })
+				  .then(data => {
+					console.log(data); 
+				  })
+				  .catch((error) => {
+					console.log(error);
+					alert(error.message); 
+				  });
 			  },
 
 		}

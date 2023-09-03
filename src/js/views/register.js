@@ -16,11 +16,13 @@ export const Register = props => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        actions.register(email, password, name)
+        actions.register(email, password, name);
+        console.log("handleSubmit funcionando");
+
         setName("");
         setEmail("");
         setPassword("");
-        console.log("handleSubmit funcionando")
+        
     }
 
 	useEffect(() => {
@@ -48,7 +50,6 @@ export const Register = props => {
 
 
 <div className="d-flex justify-content-between">
-  <span></span>
 <div className="text-center"><button type="submit" className="btn-lg btn-primary">Crear Usuario</button></div>
 <Link to="/"><div className="text-center"><button type="submit" className="btn btn-link">Ya estoy registrado</button></div></Link>
 </div>
